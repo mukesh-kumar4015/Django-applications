@@ -1,0 +1,117 @@
+{% extends 'incident_app/base.html' %}
+{% block style %}
+<style>
+    td{text-align:left}
+    .mdl-textfield{width:100%}
+    .mdl-textfield__label {
+    color: black
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div style="margin:auto;margin-top:2%;text-align:center;background-color:#74db3f; width:60%">
+    <h3>Create New User</h3>
+
+    <form action="/register/" method="POST"> {% csrf_token %}
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--6-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="first_name" name="first_name" required>
+                    <label class="mdl-textfield__label" for="first_name">First Name*</label>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="last_name" name="last_name" required>
+                    <label class="mdl-textfield__label" for="last_name">Last Name*</label>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="email" id="email" name="email" required>
+                    <label class="mdl-textfield__label" for="email">Email*</label>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="address" name="address" required>
+                    <label class="mdl-textfield__label" for="address">Address*</label>
+                </div>
+            </div>
+
+
+            <div class="mdl-cell mdl-cell--6-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <select class="mdl-textfield__input" id="country" name="country" required>
+                        <option></option>
+                        <option value="india">India</option>
+                        <option value="enterprise">Enterprise</option>
+                        <option value="government">Government</option>
+                    </select>
+                    <label class="mdl-textfield__label" for="country">Country*</label>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <select class="mdl-textfield__input" id="state" name="state" required>
+                        <option></option>
+                        <option value="delhi">Delhi</option>
+                        <option value="UP">UP</option>
+                        <option value="MP">MP</option>
+                    </select>
+                    <label class="mdl-textfield__label" for="state">State*</label>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <select class="mdl-textfield__input" id="city" name="city" required>
+                        <option></option>
+                        <option value="new delhi">New Delhi</option>
+                        <option value="lukhnow">Lucknow</option>
+                    </select>
+                    <label class="mdl-textfield__label" for="city">City*</label>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="pin" name="pin" required>
+                    <label class="mdl-textfield__label" for="pin">PIN*</label>
+                </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--12-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="phone" name="phone" required>
+                    <label class="mdl-textfield__label" for="phone">Mobile*</label>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--12-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="password" id="password" name="password" required>
+                    <label class="mdl-textfield__label" for="password">Password*</label>
+                </div>
+
+            </div>
+
+            <div class="mdl-cell mdl-cell--12-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="password" id="confirm_password" name="confirm_password" required>
+                    <label class="mdl-textfield__label" for="confirm_password">Confirm Password*</label>
+                </div>
+
+            </div>
+
+
+            <div class="mdl-cell mdl-cell--6-col"></div>
+            <div class="mdl-cell mdl-cell--6-col">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+  Submit
+</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

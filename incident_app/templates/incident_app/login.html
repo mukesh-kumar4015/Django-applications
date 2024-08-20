@@ -1,0 +1,49 @@
+{% extends 'incident_app/base.html' %}
+{% block style %}
+
+<style>
+   .login-card {
+    margin: auto;
+    margin-top: 10%;
+}
+    .mdl-card__title{
+    background: rgb(63,81,181);
+    color: #ffffff
+    }
+    .mdl-textfield__label {
+    color: black
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="demo-card-wide mdl-card mdl-shadow--2dp login-card" >
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Login</h2>
+  </div>
+    <form action="/login/" method="POST"> {% csrf_token %}
+        <div class="mdl-card__supporting-text">
+              <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" id="user" name="user" autoComplete='off'>
+                <label class="mdl-textfield__label" for="user">Username/Email</label>
+              </div>
+            </div>
+        <div class="mdl-card__supporting-text">
+              <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="password" id="password" name="password" autoComplete='off'>
+                <label class="mdl-textfield__label" for="password">Password</label>
+              </div>
+            </div>
+        <a href="/forget_password/">Forgot Password?</a>
+        <div class="mdl-card__supporting-text" style="text-align:right">
+        <!-- Accent-colored raised button with ripple -->
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          Login
+        </button></div>
+</form>
+
+
+
+
+</div>
+{% endblock %}

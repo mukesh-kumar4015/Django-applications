@@ -1,0 +1,68 @@
+{% extends 'incident_app/index.html' %}
+{% block style %}
+<style>
+    td{text-align:left}
+    .mdl-textfield__label {
+    color: black
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div style="margin:auto;margin-top:2%;text-align:center;background-color:#74db3f; width:60%">
+    <h3>Edit incident: {{incident.incident_id}}</h3>
+
+    <form action="/update_incident/" method="POST"> {% csrf_token %}
+        <div class="mdl-grid">
+            <input name="incident_id" value="{{incident.incident_id}}" hidden>
+            <div class="mdl-cell mdl-cell--6-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="details" name="details" value="{{incident.incident_details}}">
+                    <label class="mdl-textfield__label" for="details">Details</label>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <select class="mdl-textfield__input" id="type" name="type">
+<!--                        <option selected="selected">{{incident.incident_type}}</option>-->
+                        <option value="individual">Individual</option>
+                        <option value="enterprise">Enterprise</option>
+                        <option value="government">Government</option>
+                    </select>
+                    <label class="mdl-textfield__label" for="type">Type</label>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <select class="mdl-textfield__input" id="priority" name="priority">
+                        <option></option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                    <label class="mdl-textfield__label" for="priority">Priority</label>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <select class="mdl-textfield__input" id="status" name="status">
+                        <option></option>
+                        <option value="open">Open</option>
+                        <option value="in progress">In Progress</option>
+                        <option value="closed">Closed</option>
+                    </select>
+                    <label class="mdl-textfield__label" for="status">Status</label>
+                </div>
+            </div>
+            <div class="mdl-cell mdl-cell--6-col"></div>
+            <div class="mdl-cell mdl-cell--6-col">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+  update
+</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

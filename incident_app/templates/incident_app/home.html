@@ -1,0 +1,48 @@
+{% extends 'incident_app/index.html' %}
+{% block style %}
+<style>
+  td{text-align:left}
+  #create{
+    text-align: right;
+    width: 80%;
+    margin-top: 2%;
+}
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div id="create"><a href="/create_incident/">Create Incident</a></div>
+<div style="width:100%; margin:auto; margin-top:1%;text-align:center">My incident Report</div>
+<table class="mdl-data-table  mdl-shadow--2dp" style="margin:auto; margin-top:1%">
+  <thead>
+    <tr>
+      <th style="text-align:left">Incident Id</th>
+      <th style="text-align:left">Type</th>
+      <th style="text-align:left">Details</th>
+      <th style="text-align:left">Priority</th>
+      <th style="text-align:left">Status</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for incident in incidents %}
+    <tr>
+      <td style="text-align:left">{{incident.incident_id}}</td>
+      <td style="text-align:left">{{incident.incident_type}}</td>
+      <td style="text-align:left; word-wrap:break-word;">{{incident.incident_details}}</td>
+      <td style="text-align:left">{{incident.priority}}</td>
+      <td style="text-align:left">{{incident.incident_status}}</td>
+      {% if incident.incident_status == 'closed' %}
+        <td style="text-align:left">edit</td>
+      {% else %}
+      <td style="text-align:left"><a href="/update_incident/{{incident.incident_id}}">edit</a></td>
+
+      {% endif %}
+
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
